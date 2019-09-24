@@ -10,7 +10,7 @@ class TracksAPI {
           "https://api.spotify.com/v1/tracks?ids=${ids.join(",")}" ,
           options: Options(headers: {
             HttpHeaders.authorizationHeader:
-                'Bearer BQB2Zy5v0ySHgfOxrdfDQ1U1tnvGP7bIYOqUDVrRSBns8voqGOK0N6TrxZ2DXclKTkdeuPXhOK0u9Se6Cu1zayeAhG2NFz0l9mp42pLpkcUbkFwLwe9EgxrJCLOg3zHhqZOexJvjlSe33IHm2Y4mWbXyOU41arFc4oyketnzFSAhj3JaweX_8u9j2iZjHd8wJpNs3bKD2-phW3EpV43R6glbhneiEO-xoJp8fFiyX4_HHJh1_Yr7czqc6OA0mL04Knhlg0VKWaMHEJKDVA'
+                'Bearer BQAFqWvFkln0yq1n90gd1tLu0Bu9At4Y-Behy88rppN2iOb7TG9DiLtRFnyVWZxnDMUKkwIOeadkFL1YW4ihB0oterfPSAYH7W-vw4_wAfK1rV-C6XYgQCrK519MZSrfVhzdg-I76iN3d8QpmeM1QpIhKYdrvRrQuZqKFWpO-eez2ONJJjj15AGYvaMFKaNSKoK_7prePl_rdm4ILALYiP3eLNjI5XjgI9zxIwJ0m05-PNPnMhMQxLyD6fqEKEhPJPhCt3cu4aSq-MPi6w'
           }));
 
       if (response.statusCode == 200) {
