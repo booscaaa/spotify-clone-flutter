@@ -41,127 +41,149 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        top: true,
-        child: Scaffold(
-          backgroundColor: Colors.black,
-          body: ListView(
-            children: <Widget>[
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(left: 16, right: 16),
-                      child: Text(
-                        'Não sai dos seus ouvidos',
-                        style: Theme.of(context).textTheme.title,
-                      )),
-                  Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      child: StreamBuilder(
-                        stream: pBLoc.playlistsLineOne,
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: const EdgeInsets.all(10.0),
-                              itemBuilder: (context, index) {
-                                return PlaylistWidget(playlist: snapshot.data[index]);
+    return Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                stops: [0.004, 0.13],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomRight,
+                colors: [Colors.grey[800], Colors.black])),
+        child: SafeArea(
+            top: true,
+            bottom: false,
+            child: Scaffold(
+                backgroundColor: Colors.transparent,
+                body: ListView(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Icon(
+                              Icons.settings,
+                              color: Colors.white,
+                            )),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                            padding: EdgeInsets.only(left: 16, right: 16),
+                            child: Text(
+                              'Não sai dos seus ouvidos',
+                              style: Theme.of(context).textTheme.title,
+                            )),
+                        Container(
+                            height: 270,
+                            child: StreamBuilder(
+                              stream: pBLoc.playlistsLineOne,
+                              builder: (BuildContext context,
+                                  AsyncSnapshot snapshot) {
+                                if (snapshot.hasData) {
+                                  return ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    padding: const EdgeInsets.all(10.0),
+                                    itemBuilder: (context, index) {
+                                      return PlaylistWidget(
+                                          playlist: snapshot.data[index]);
+                                    },
+                                    itemCount: snapshot.data.length,
+                                  );
+                                } else {
+                                  return Container();
+                                }
                               },
-                              itemCount: snapshot.data.length,
-                            );
-                          } else {
-                            return Container();
-                          }
-                        },
-                      )),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(left: 16, right: 16),
-                      child: Text(
-                        'Escute de novo',
-                        style: Theme.of(context).textTheme.title,
-                      )),
-                  Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      child: StreamBuilder(
-                        stream: tBLoc.tracks,
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: const EdgeInsets.all(10.0),
-                              itemBuilder: (context, index) {
-                                return TrackWidget(track: snapshot.data[index]);
+                            )),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                            padding: EdgeInsets.only(left: 16, right: 16),
+                            child: Text(
+                              'Escute de novo',
+                              style: Theme.of(context).textTheme.title,
+                            )),
+                        Container(
+                            height: 270,
+                            child: StreamBuilder(
+                              stream: tBLoc.tracks,
+                              builder: (BuildContext context,
+                                  AsyncSnapshot snapshot) {
+                                if (snapshot.hasData) {
+                                  return ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    padding: const EdgeInsets.all(10.0),
+                                    itemBuilder: (context, index) {
+                                      return TrackWidget(
+                                          track: snapshot.data[index]);
+                                    },
+                                    itemCount: snapshot.data.length,
+                                  );
+                                } else {
+                                  return Container();
+                                }
                               },
-                              itemCount: snapshot.data.length,
-                            );
-                          } else {
-                            return Container();
-                          }
-                        },
-                      )),
-                ],
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                      padding: EdgeInsets.only(left: 16, right: 16),
-                      child: Text(
-                        'Não deixe a musica parar',
-                        style: Theme.of(context).textTheme.title,
-                      )),
-                  Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      child: StreamBuilder(
-                        stream: pBLoc.playlistsLineTwo,
-                        builder:
-                            (BuildContext context, AsyncSnapshot snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              padding: const EdgeInsets.all(10.0),
-                              itemBuilder: (context, index) {
-                                return PlaylistWidget(playlist: snapshot.data[index]);
+                            )),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                            padding: EdgeInsets.only(left: 16, right: 16),
+                            child: Text(
+                              'Não deixe a musica parar',
+                              style: Theme.of(context).textTheme.title,
+                            )),
+                        Container(
+                            height: 270,
+                            child: StreamBuilder(
+                              stream: pBLoc.playlistsLineTwo,
+                              builder: (BuildContext context,
+                                  AsyncSnapshot snapshot) {
+                                if (snapshot.hasData) {
+                                  return ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    padding: const EdgeInsets.all(10.0),
+                                    itemBuilder: (context, index) {
+                                      return PlaylistWidget(
+                                          playlist: snapshot.data[index]);
+                                    },
+                                    itemCount: snapshot.data.length,
+                                  );
+                                } else {
+                                  return Container();
+                                }
                               },
-                              itemCount: snapshot.data.length,
-                            );
-                          } else {
-                            return Container();
-                          }
-                        },
-                      )),
-                ],
-              )
-            ],
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            backgroundColor: Colors.black12,
-            // onTap: onTabTapped, // new
-            // currentIndex: _currentIndex, // new
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey,
+                            )),
+                      ],
+                    )
+                  ],
+                ),
+                bottomNavigationBar: BottomNavigationBar(
+                  backgroundColor: Colors.grey[900],
+                  // onTap: onTabTapped, // new
+                  // currentIndex: _currentIndex, // new
+                  selectedItemColor: Colors.white,
+                  unselectedItemColor: Colors.grey,
 
-            items: [
-              new BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                title: Text('Inicio'),
-              ),
-              new BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                title: Text('Buscar'),
-              ),
-              new BottomNavigationBarItem(
-                  icon: Icon(Icons.view_list), title: Text('Sua Biblioteca'))
-            ],
-          ),
-        ));
+                  items: [
+                    new BottomNavigationBarItem(
+                      icon: Icon(Icons.home),
+                      title: Text('Inicio'),
+                    ),
+                    new BottomNavigationBarItem(
+                      icon: Icon(Icons.search),
+                      title: Text('Buscar'),
+                    ),
+                    new BottomNavigationBarItem(
+                        icon: Icon(Icons.view_list),
+                        title: Text('Sua Biblioteca'))
+                  ],
+                ))));
   }
 }
